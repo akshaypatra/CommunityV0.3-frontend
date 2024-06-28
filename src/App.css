@@ -1,0 +1,106 @@
+/* 1.1 Navbar css */
+.Navbar{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+  padding-bottom:7px;
+  background-color: rgb(167,146,118);
+}
+
+.Navbar-list li{
+  display:inline;
+  float: left;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  
+
+}
+.Navbar-list a{
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+  margin-left:20px;
+}
+.Navbar-list a:hover{
+  color: aliceblue;
+}
+
+
+/* 1.2 Navbar button css */
+
+.Signup-button,
+.Login-button{
+  background-color: rgb(255,242,225);
+  border: 0px;
+  border-radius:4px;
+  margin-left:10px;
+  padding: 0.5rem 1rem;
+  
+}
+button:hover{
+  background-color: rgba(255, 242, 225, 0.578);
+} 
+
+
+/* Hide the menu toggle button on larger screens */
+@media (min-width: 642px) {
+  .menu-toggle {
+      display: none;
+  }
+}
+
+/* Responsive Navbar CSS for phones */
+@media (max-width: 642px) {
+  .Navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 5px;
+  }
+
+  .Navbar-list {
+      display: none; /* Hide the list items initially */
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .Navbar-list li {
+      margin: 10px 0;
+      text-align: left;
+  }
+
+  .nav-buttons {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 10px;
+  }
+
+  .Navbar-list.show {
+      display: flex; /* Show the list items when the menu is toggled */
+  }
+
+  .menu-toggle {
+      display: block;
+      cursor: pointer;
+      color: black;
+      font-size: 20px;
+      background: none;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+  }
+}
+
+
+
+
+/* 2.1 html page  */
+
+html{
+  background-color: rgb(255,242,225);
+}
