@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { SlMenu } from "react-icons/sl";
+import { Link } from 'react-router-dom';
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -11,16 +12,17 @@ export default function NavBar() {
     <nav className='Navbar'>
         
         <ul className={`Navbar-list ${menuOpen ? 'show' : ''}`}>
-            <li>CollegeCommunity</li>
-            <li><a href='/'>Home</a></li>
-            <li><a href='/'>Connect</a></li>
-            <li><a href='/'>NoteFusion</a></li>
+            <li className='nav-header'>CollegeCommunity</li>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/connect'>Connect</Link></li>
+            <li><Link to='/notefusion'>NoteFusion</Link></li>
+            <li><Link to='/profile'>Profile</Link></li>
 
         </ul>
         <div className='nav-buttons'>
             <button className="menu-toggle" onClick={toggleMenu}><SlMenu /></button>
-            <button className='Signup-button'>SignUp</button>
-            <button className='Login-button'>Login</button>
+            <button className='Signup-button'><Link to="/signup" >SignUp</Link></button>
+            <button className='Login-button'><Link to="/login" >Login</Link></button>
         </div>
     </nav>
   )

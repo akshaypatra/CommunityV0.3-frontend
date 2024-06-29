@@ -9,6 +9,10 @@
   background-color: rgb(167,146,118);
 }
 
+.nav-header{
+  margin-right: 1vw;
+  
+}
 .Navbar-list li{
   display:inline;
   float: left;
@@ -29,6 +33,10 @@
   color: aliceblue;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+}
 
 /* 1.2 Navbar button css */
 
@@ -103,4 +111,31 @@ button:hover{
 
 html{
   background-color: rgb(255,242,225);
+}
+
+/* 3.1 HomePage */
+.HomePage{
+  background-color: rgb(255,242,225);
+}
+
+/* 4.1 Signup page */
+
+.signupPage{
+  background-color:rgb(255,242,225) ;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+.form-container{
+  background-color:rgba(231, 212, 187, 0.547) ;
+  padding: 30px;
+  border-radius: 30px;
+  margin: auto;
+}
+
+.login-link{
+  text-decoration: underline;
 }
