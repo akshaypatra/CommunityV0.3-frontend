@@ -139,3 +139,14 @@ html{
 .login-link{
   text-decoration: underline;
 }
+
+/* 5.1 Login page */
+.LoginPage{
+  background-color:rgb(255,242,225) ;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 15vh;
+
+}
