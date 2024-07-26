@@ -23,7 +23,7 @@ export default function LoginPage() {
                 <button className='Login-button'>Reset</button>
                 </div>
 
-                Don't have an account ? <Link className='login-link'  to="/signup">SignUp</Link>
+                Don't have an account ?  <Link className='login-link'  to="/signup">SignUp</Link>
             </form>
 
         </div>
