@@ -41,7 +41,8 @@ a{
 /* 1.2 Navbar button css */
 
 .Signup-button,
-.Login-button{
+.Login-button,
+.Logout-button{
   background-color: rgb(255,242,225);
   border: 0px;
   border-radius:4px;

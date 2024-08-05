@@ -1,13 +1,21 @@
 import React,{useState} from 'react'
 import { SlMenu } from "react-icons/sl";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
-
+    const navigate = useNavigate();
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem('authToken'); // Remove the token
+        navigate('/login'); // Redirect to login page
+    };
+
+    const isLoggedIn = !!localStorage.getItem('authToken');
+
   return (
     <nav className='Navbar'>
         
@@ -20,9 +28,15 @@ export default function NavBar() {
 
         </ul>
         <div className='nav-buttons'>
-            <button className="menu-toggle" onClick={toggleMenu}><SlMenu /></button>
-            <button className='Signup-button'><Link to="/signup" >SignUp</Link></button>
-            <button className='Login-button'><Link to="/login" >Login</Link></button>
+                <button className="menu-toggle" onClick={toggleMenu}><SlMenu /></button>
+                {!isLoggedIn ? (
+                    <>
+                        <button className='Signup-button'><Link to="/signup">SignUp</Link></button>
+                        <button className='Login-button'><Link to="/login">Login</Link></button>
+                    </>
+                ) : (
+                    <button className='Logout-button' onClick={handleLogout}>Logout</button>
+                )}
         </div>
     </nav>
   )
