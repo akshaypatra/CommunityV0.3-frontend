@@ -1,6 +1,11 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
 export default function ProfilePage() {
+    const navigate=useNavigate();
+    const handleEditProfileButton=()=>{
+        navigate('edit_profile')
+    }
+
   return (
     <div className='Profile-container'>
        
@@ -40,7 +45,7 @@ export default function ProfilePage() {
                 Tech used: React.js ,Node.js, MongoDB ,Bootstrap ,Next.js
             </li>
         </ul>
-        <button className='details-edit-button'>Edit Profile</button>
+        <button onClick={handleEditProfileButton} className='details-edit-button'  >Edit Profile</button>
         </div>
     </div>
   )

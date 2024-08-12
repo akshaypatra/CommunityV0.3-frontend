@@ -225,3 +225,59 @@ html{
  background-color:rgb(251, 214, 167) ;
  
 }
+
+/* 6.2 edit Profile page */
+
+.edit-profile-page{
+  background-color:rgb(255,242,225) ;
+  padding: 4%;
+
+}
+
+.edit-profile-section1{
+  
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  
+}
+.edit-profile-section1 input{
+  margin-top: 20px;
+  background-color:rgb(255,242,225)  ;
+  border-radius:4px;
+  width: 50%;
+}
+.edit-profile-section1 textarea{
+  margin-top: 20px;
+  background-color:rgb(255,242,225)  ;
+  border-radius:4px;
+  width: 50%;
+  
+}
+
+.edit-profile-section1 button{
+  width:100px;
+ margin-top: 20px;
+ background-color:rgb(243, 215, 177);
+ border-radius: 10px;
+ border: 0px;
+}
+
+.edit-profile-section1 button:hover{
+  background-color:rgba(250, 199, 132, 0.845);
+  
+}
+
+@media (max-width: 642px) {
+  .edit-profile-section1 input{
+    
+    width: 100%;
+  }
+  .edit-profile-section1 textarea{
+    
+    width: 100%;
+    
+  }
+}

@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Signup from './pages/Signup';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
+import EditProfilePage from './pages/EditProfilePage';
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
             <Route  path="/signup" element={<Signup/>} />
             <Route  path="/login" element={<LoginPage/>} />
             <Route  path="/profile" element={<ProfilePage/>} />
+            <Route  path="/profile/edit_profile" element={<EditProfilePage/>} />
         </Routes>
 
 
