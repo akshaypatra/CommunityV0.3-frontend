@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
+import { useNavigate  } from 'react-router-dom'
 
 
 export default function Signup() {
@@ -21,6 +21,8 @@ export default function Signup() {
 
   })
 
+  const navigate = useNavigate();
+
   const handleInput=(event)=>{
       setPost({...post,[event.target.name]: event.target.value});
   }
@@ -30,6 +32,7 @@ export default function Signup() {
     axios.post('http://127.0.0.1:8000/api/register/',post)
     .then(response => console.log(response))
     .catch(err =>{console.error("Error during signup:", err.response ? err.response.data : err.message);})
+     navigate('/login');
   }
 
   const handleReset = () => {
