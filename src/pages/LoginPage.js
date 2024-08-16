@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link,useNavigate  } from 'react-router-dom'
-import axios
- from 'axios';
+import axios from 'axios';
 export default function LoginPage() {
 
   const [post,setPost]=useState({
@@ -45,7 +44,7 @@ export default function LoginPage() {
         <h4 className='header my-2'>Log In to College Community</h4>
             <form onSubmit={handleSubmit} >
                 <div className='container my-5'>
-                <input type="email" class="form-control" id="username" placeholder="Email address" name='username' onChange={handleInput} required></input>
+                <input type="email" className="form-control" id="username" placeholder="Email address" name='username' onChange={handleInput} required></input>
                 <input id='password' type='password' className='form-control my-2' placeholder='Password' name='password' onChange={handleInput} required></input>
                 </div>
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function EditProfilePage() {
   const token = localStorage.getItem('authToken');
+ 
 
   const [profilePicture, setProfilePicture] = useState(null);
   const [bio, setBio] = useState('');

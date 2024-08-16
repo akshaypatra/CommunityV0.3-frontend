@@ -209,6 +209,11 @@ html{
   width: 100%;
 }
 
+.loading-screen{
+  background-color:rgb(255,242,225) ;
+  text-align: center;
+}
+
 @media (max-width: 642px) {
   .Profile-container{
     display: flex;
