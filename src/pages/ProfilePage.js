@@ -114,7 +114,7 @@ export default function ProfilePage() {
                         alt='Profile'
                     />
                     <h1>{userData.first_name} {userData.last_name}</h1>
-                    <p className='profile-title'>{profileInfo.academic_year} {profileInfo.department}</p>
+                    <p className='profile-title'>{userData.academic_year} {userData.department}</p>
                     <p>{userData.college_name}</p>
                     <p><button className='profile-button'>Contact</button></p>
                 </div>
