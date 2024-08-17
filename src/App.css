@@ -235,16 +235,24 @@ html{
 
 .edit-profile-page{
   background-color:rgb(255,242,225) ;
-  padding: 4%;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 49%  49%;
+  gap: 2%;
+  
 
 }
 
-.edit-profile-section1{
-  
+.edit-profile-section1,.edit-profile-section2{
+  background-color:rgb(237, 218, 194) ;
   text-align: left;
+  padding: 2%;
+  padding-left:4%;
   display: flex;
   flex-direction: column;
   width: 100%;
+  border: 1px solid black ;
+  border-radius: 10px;
   
   
 }
@@ -262,20 +270,45 @@ html{
   
 }
 
-.edit-profile-section1 button{
+.edit-profile-section1 button,.edit-profile-section2 button{
   width:100px;
  margin-top: 20px;
- background-color:rgb(243, 215, 177);
+ background-color:rgba(238, 194, 137, 0.795);
  border-radius: 10px;
  border: 0px;
 }
 
-.edit-profile-section1 button:hover{
-  background-color:rgba(250, 199, 132, 0.845);
+.edit-profile-section1 button:hover,.edit-profile-section2 button:hover{
+  background-color:rgb(83, 201, 225);
   
 }
 
+
+
+.edit-profile-section2 input{
+  margin-top: 20px;
+  background-color:rgb(255,242,225)  ;
+  border-radius:4px;
+  width: 50%;
+}
+.edit-profile-section2 textarea{
+  margin-top: 20px;
+  background-color:rgb(255,242,225)  ;
+  border-radius:4px;
+  width: 50%;
+  
+}
+
+
+
+
+
 @media (max-width: 642px) {
+  .edit-profile-page{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
   .edit-profile-section1 input{
     
     width: 100%;
