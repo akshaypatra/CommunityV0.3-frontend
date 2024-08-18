@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link,useNavigate  } from 'react-router-dom'
 import axios from 'axios';
-export default function LoginPage() {
+export default function LoginPage(props) {
 
   const [post,setPost]=useState({
     username:" ",
@@ -22,11 +22,15 @@ export default function LoginPage() {
         const { token } = response.data;
       
         localStorage.setItem('authToken', token);
+        props.showAlert('Logged in successfully', 'success');
         // Redirect to home page
         navigate('/');
       })
       .catch(err => {
-        console.error('Error during login:', err.response ? err.response.data : err.message);
+        const errorMessage = err.response && err.response.data && err.response.data.detail 
+        ? err.response.data.detail 
+        : 'Login failed. Please check your credentials.';
+        props.showAlert(errorMessage, 'danger');
       });
   };
 

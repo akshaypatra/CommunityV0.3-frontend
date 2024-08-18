@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function EditProfilePage() {
+export default function EditProfilePage(props) {
   const token = localStorage.getItem('authToken');
 
   const [firstName, setFirstName] = useState('');
@@ -26,7 +26,7 @@ export default function EditProfilePage() {
 
  
 
-  useEffect(() => {
+  useEffect((props) => {
     // Fetch profile info data on component mount
     axios.get('http://127.0.0.1:8000/api/profileinfo/', {
       headers: {
@@ -41,7 +41,8 @@ export default function EditProfilePage() {
       setWork(data.work || '');
     })
     .catch(error => {
-      console.error('Error fetching profile info:', error);
+      //console.error('Error fetching profile info:', error);
+      props.showAlert(error,'danger');
     });
 
 
@@ -63,7 +64,8 @@ export default function EditProfilePage() {
       setAcademicYear(data.academic_year || '');
     })
     .catch(error => {
-      console.error('Error fetching profile info:', error);
+      //console.error('Error fetching profile info:', error);
+      props.showAlert(error,'danger');
     });
 
 
@@ -87,15 +89,21 @@ export default function EditProfilePage() {
     
     
     try {
+      // eslint-disable-next-line
       const response = await axios.put('http://127.0.0.1:8000/api/profileinfo/update/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Token ${token}`,
         },
       });
-      console.log('Profile updated successfully', response.data);
-    } catch (error) {
-      console.error('Error updating profile and user details', error.response ? error.response.data : error.message);
+      //console.log('Profile updated successfully', response.data);
+      props.showAlert('Profile updated successfully','success');
+    } catch (err) {
+      //console.error('Error updating profile and user details', error.response ? error.response.data : error.message);
+      const errorMessage = err.response && err.response.data && err.response.data.detail 
+        ? err.response.data.detail 
+        : 'Profile updation failed. try again.';
+        props.showAlert(errorMessage, 'danger');
     }
   };
 
@@ -116,15 +124,21 @@ export default function EditProfilePage() {
   // }
 
     try {
+      // eslint-disable-next-line
       const response = await axios.patch('http://127.0.0.1:8000/api/update-user/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Token ${token}`,
         },
       });
-      console.log('Profile updated successfully', response.data);
-    } catch (error) {
-      console.error('Error updating profile and user details', error.response ? error.response.data : error.message);
+      //console.log('Profile updated successfully', response.data);
+      props.showAlert('Profile updated successfully','success');
+    } catch (err) {
+      //console.error('Error updating profile and user details', error.response ? error.response.data : error.message);
+      const errorMessage = err.response && err.response.data && err.response.data.detail 
+        ? err.response.data.detail 
+        : 'Profile updation failed. try again.';
+        props.showAlert(errorMessage, 'danger');
     }
 
 

@@ -7,18 +7,36 @@ import Signup from './pages/Signup';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import EditProfilePage from './pages/EditProfilePage';
+import Alert from './components/Alert';
+import { useState } from 'react';
+
 function App() {
+  const [alert, setAlert] = useState(null);
+
+  // eslint-disable-next-line
+  const showAlert=(message,type)=>{
+
+          
+    setAlert({
+              msg:message,
+              type:type
+                })
+    setTimeout(() => {
+                setAlert(null);
+              }, 2000);
+  }
   return (
     <div className="App">
       <BrowserRouter>
 
-        <NavBar/>
+        <NavBar showAlert={showAlert}/>
+        <Alert alert={alert}/>
         <Routes>
-            <Route exact path="/" element={<Home/>} />
-            <Route  path="/signup" element={<Signup/>} />
-            <Route  path="/login" element={<LoginPage/>} />
-            <Route  path="/profile" element={<ProfilePage/>} />
-            <Route  path="/profile/edit_profile" element={<EditProfilePage/>} />
+            <Route exact path="/" element={<Home showAlert={showAlert}/>}  />
+            <Route  path="/signup" element={<Signup showAlert={showAlert}/>}  />
+            <Route  path="/login" element={<LoginPage showAlert={showAlert}/>} />
+            <Route  path="/profile" element={<ProfilePage showAlert={showAlert} />} />
+            <Route  path="/profile/edit_profile" element={<EditProfilePage showAlert={showAlert}/>}  />
         </Routes>
 
 

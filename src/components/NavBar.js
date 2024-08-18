@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { SlMenu } from "react-icons/sl";
 import { Link,useNavigate } from 'react-router-dom';
 
-export default function NavBar() {
+export default function NavBar(props) {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
     const toggleMenu = () => {
@@ -11,6 +11,7 @@ export default function NavBar() {
 
     const handleLogout = () => {
         localStorage.removeItem('authToken'); // Remove the token
+        props.showAlert('Logged Out successfully','success');
         navigate('/login'); // Redirect to login page
     };
 

@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useNavigate  } from 'react-router-dom'
 
 
-export default function Signup() {
+export default function Signup(props) {
 
   const [post,setPost]=useState({
 
@@ -31,7 +31,13 @@ export default function Signup() {
     event.preventDefault();
     axios.post('http://127.0.0.1:8000/api/register/',post)
     .then(response => console.log(response))
-    .catch(err =>{console.error("Error during signup:", err.response ? err.response.data : err.message);})
+    .catch(err =>{
+      const errorMessage = err.response && err.response.data && err.response.data.detail 
+      ? err.response.data.detail 
+      : 'Signup failed. Please check your credentials.';
+      props.showAlert(errorMessage, 'danger');
+    })
+    props.showAlert('Signed In successfully , Login to use College Community','success');
      navigate('/login');
   }
 
