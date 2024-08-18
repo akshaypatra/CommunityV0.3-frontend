@@ -8,37 +8,70 @@ export default function Signup(props) {
 
   const [post,setPost]=useState({
 
-    first_name:" ",
-    last_name:" ",
-    college_name:" ",
-    state:" ",
-    city:" ",
-    enrollment_number:" ",
-    department:" ",
-    academic_year:" ",
-    email:" ",
-    password:" ",
+    first_name:"",
+    last_name:"",
+    college_name:"",
+    state:"",
+    city:"",
+    enrollment_number:"",
+    department:"",
+    academic_year:"",
+    email:"",
+    password:"",
 
   })
+
 
   const navigate = useNavigate();
 
   const handleInput=(event)=>{
       setPost({...post,[event.target.name]: event.target.value});
+      
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://127.0.0.1:8000/api/register/',post)
-    .then(response => console.log(response))
-    .catch(err =>{
-      const errorMessage = err.response && err.response.data && err.response.data.detail 
-      ? err.response.data.detail 
-      : 'Signup failed. Please check your credentials.';
+
+    // Register the user
+    axios.post('http://127.0.0.1:8000/api/register/', post)
+      .then(response => {
+        // Automatically log the user in after successful registration
+        const loginData = {
+          username: post.email,
+          password: post.password
+        };
+
+        axios.post('http://127.0.0.1:8000/api/api-token-auth/', loginData)
+          .then(response => {
+            const { token } = response.data;
+            localStorage.setItem('authToken', token);
+            props.showAlert('Signed in successfully', 'success');
+            navigate('/');
+          })
+          .catch(err => {
+            const errorMessage = err.response && err.response.data && err.response.data.detail
+              ? err.response.data.detail
+              : 'Login failed. Please check your credentials.';
+            props.showAlert(errorMessage, 'danger');
+          });
+      })
+      .catch(err => {
+        let errorMessage = 'Signup failed. Please check your input and try again.';
+
+      // Check if response data contains detailed error messages
+      if (err.response && err.response.data) {
+        const errors = err.response.data;
+        // Combine error messages into a single string
+        errorMessage = Object.keys(errors).map(key => {
+          if (Array.isArray(errors[key])) {
+            return `${key}: ${errors[key].join(', ')}`;
+          }
+          return `${key}: ${errors[key]}`;
+        }).join(', ');
+      }
+
       props.showAlert(errorMessage, 'danger');
-    })
-    props.showAlert('Signed In successfully , Login to use College Community','success');
-     navigate('/login');
+      });
   }
 
   const handleReset = () => {

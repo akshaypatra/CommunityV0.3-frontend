@@ -42,7 +42,8 @@ export default function EditProfilePage(props) {
     })
     .catch(error => {
       //console.error('Error fetching profile info:', error);
-      props.showAlert(error,'danger');
+      const errorMessage = error.response?.data?.detail || 'Error fetching profile info';
+      props.showAlert(errorMessage,'danger');
     });
 
 
@@ -65,7 +66,8 @@ export default function EditProfilePage(props) {
     })
     .catch(error => {
       //console.error('Error fetching profile info:', error);
-      props.showAlert(error,'danger');
+      const errorMessage = error.response?.data?.detail || 'Error fetching profile info';
+      props.showAlert(errorMessage,'danger');
     });
 
 
