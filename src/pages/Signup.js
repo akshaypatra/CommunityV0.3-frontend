@@ -46,7 +46,26 @@ export default function Signup(props) {
             const { token } = response.data;
             localStorage.setItem('authToken', token);
             props.showAlert('Signed in successfully', 'success');
-            navigate('/');
+            axios.post('http://127.0.0.1:8000/api/profileinfo/', {
+              bio: "No Bio",
+              skills: "No skills",
+              work: "No work"
+            }, {
+              headers: {
+                'Authorization': `Token ${token}`,
+                'Content-Type': 'application/json',
+              }
+            })
+            .then(() => {
+              navigate('/');
+            })
+            .catch(err => {
+              const errorMessage = err.response && err.response.data && err.response.data.detail
+                ? err.response.data.detail
+                : 'Failed to initialize profile information.';
+              props.showAlert(errorMessage, 'danger');
+            });
+
           })
           .catch(err => {
             const errorMessage = err.response && err.response.data && err.response.data.detail
@@ -118,10 +137,10 @@ export default function Signup(props) {
                 </select>
                 <select id='academic_year' className="form-select my-2" onChange={handleInput} aria-label="Default select example"  name='academic_year' value={post.academic_year} required>
                         <option value="">Academic Year</option>
-                        <option value="1">First year</option>
-                        <option value="2">Second year</option>
-                        <option value="3">Third year </option>
-                        <option value="4">Final year </option>
+                        <option value="First year">First year</option>
+                        <option value="Second year">Second year</option>
+                        <option value="Third year">Third year </option>
+                        <option value="Final year">Final year </option>
                         
                 </select>
                 <input type="email" className="form-control" id="email" onChange={handleInput} placeholder="Email address"  name="email"  required></input>
