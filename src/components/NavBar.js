@@ -24,7 +24,7 @@ export default function NavBar(props) {
             <li className='nav-header'>CollegeCommunity</li>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/connect'>Connect</Link></li>
-            <li><Link to='/notefusion'>NoteFusion</Link></li>
+            <li><Link to='/note_fusion'>NoteFusion</Link></li>
             <li><Link to='/profile'>Profile</Link></li>
 
         </ul>

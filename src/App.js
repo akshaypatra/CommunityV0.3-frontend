@@ -7,6 +7,7 @@ import Signup from './pages/Signup';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import EditProfilePage from './pages/EditProfilePage';
+import NoteFusion from './pages/NoteFusion';
 import Alert from './components/Alert';
 import { useState } from 'react';
 
@@ -36,6 +37,7 @@ function App() {
             <Route  path="/signup" element={<Signup showAlert={showAlert}/>}  />
             <Route  path="/login" element={<LoginPage showAlert={showAlert}/>} />
             <Route  path="/profile" element={<ProfilePage showAlert={showAlert} />} />
+            <Route  path="/note_fusion" element={<NoteFusion showAlert={showAlert} />} />
             <Route  path="/profile/edit_profile" element={<EditProfilePage showAlert={showAlert}/>}  />
         </Routes>
 
