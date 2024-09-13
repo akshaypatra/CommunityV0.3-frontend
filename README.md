@@ -34,11 +34,13 @@ academic interests, projects, and extracurricular activities.
 
 ### 2. Profile Page 
 
-<img width="1680" alt="Screenshot 2024-09-13 at 19 55 37" src="https://github.com/user-attachments/assets/453d4575-2333-4c6b-8946-25e7b728fc53">
+<img width="1679" alt="Screenshot 2024-09-13 at 20 18 25" src="https://github.com/user-attachments/assets/9f154ba6-0277-4417-a7b6-d8549f02f73c">
+
 
 ### 3. Profile Edit Page
 
-<img width="1680" alt="Screenshot 2024-09-13 at 19 52 25" src="https://github.com/user-attachments/assets/e30a0ffb-4c7f-4f14-a5e1-bc18af4e8549">
+<img width="1679" alt="Screenshot 2024-09-13 at 20 18 13" src="https://github.com/user-attachments/assets/1bdc142c-9daf-4350-a53c-791cd40b6a1a">
+
 
 ### 4. NoteFusion Page : to search resources
 
