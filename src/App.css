@@ -125,6 +125,50 @@ html{
   background-color: rgb(255,242,225);
 }
 
+/* 3.1.2 section 2- announcements-section */
+
+.home-page-section-2{
+  display: flex;
+  flex-direction: row;
+  height: 55vh;
+  padding: 30px;
+  gap: 15rem;
+  padding-left: 10rem;
+}
+
+@media (max-width: 642px) {
+  .home-page-section-2{
+    display: flex;
+    flex-direction: column;
+    height: 55vh;
+    padding: 30px;
+    gap: 40px;
+  }
+}
+
+.announcements-section{
+  padding: 30px;
+  border-radius: 20px;
+  background-color:  rgb(240, 205, 161);
+  margin-left: 0.9rem;
+  box-shadow: 5px 8px 10px 1px #00000037;
+
+  
+}
+
+.announcement-container{
+    height: 40vh;
+    overflow: scroll;
+    list-style: none;
+    padding: 0px;
+}
+
+.announcement-list-item{
+  margin-top: 20px;
+  
+}
+
+
 /* 3.2 event component */
 .event-container{
   text-align: center;
@@ -163,12 +207,14 @@ html{
   border-radius: 1rem;
   background-color: rgb(240, 205, 161);
   padding: 1rem;
+  box-shadow: 5px 5px 10px 1px #00000037;
 
 }
 
 .event-card-list-item{
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom:10px;
 }
 .event-header {
   display: flex;
@@ -214,7 +260,7 @@ html{
   text-decoration: none;
 }
 
-.event-mark-as-read, .event-read {
+.event-register {
   display: inline-block;
   border-radius: 0.5rem;
   width: 100%;
@@ -225,22 +271,189 @@ html{
   font-weight: 600;
 }
 
-.event-read {
-  background-color: rgb(227, 177, 112);
-  color: rgba(255, 255, 255, 1);
-}
-.event-read:hover{
-  background-color: rgba(246, 182, 98, 0.969)
-}
-.event-mark-as-read {
+
+.event-register {
   margin-top: 0.5rem;
-  background-color: rgba(249, 250, 251, 1);
+  
+  background-color: rgba(248, 243, 238, 0.969);
   color: rgba(107, 114, 128, 1);
   transition: all .15s ease;
 }
 
-.event-mark-as-read:hover {
-  background-color: rgb(230, 231, 233);
+.event-register:hover {
+  background-color: rgb(232, 221, 207);
+}
+
+
+/* 3.3 annoouncement section */
+.announcement-header{
+  font-family: cursive;
+}
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: relative;
+  width: 30rem;
+  height: 8rem;
+  background: #29292c;
+  border-radius: 1rem;
+  overflow: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
+  --color: #32a6ff
+  
+}
+
+@media (max-width: 642px) {
+  .notification {
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    position: relative;
+    width: 18rem;
+    height: 8rem;
+    background: #29292c;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
+    --color: #32a6ff
+    
+  }
+}
+
+.notification:before {
+  position: absolute;
+  content: "";
+  inset: 0.0625rem;
+  border-radius: 0.9375rem;
+  background: #18181b;
+  z-index: 2
+}
+
+.notification:after {
+  position: absolute;
+  content: "";
+  width: 0.25rem;
+  inset: 0.65rem auto 0.65rem 0.5rem;
+  border-radius: 0.125rem;
+  background: var(--gradient);
+  transition: transform 300ms ease;
+  z-index: 4;
+}
+
+.notification:hover:after {
+  transform: translateX(0.15rem)
+}
+
+.notititle {
+  color: var(--color);
+  padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.notification:hover .notititle {
+  transform: translateX(0.15rem)
+}
+
+.notibody,.noti-date {
+  color: #99999d;
+  padding: 0 1.25rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.notification:hover .notibody {
+  transform: translateX(0.25rem)
+}
+
+.notiglow,
+.notiborderglow {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle closest-side at center, white, transparent);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.notiglow {
+  z-index: 3;
+}
+
+.notiborderglow {
+  z-index: 1;
+}
+
+.notification:hover .notiglow {
+  opacity: 0.1
+}
+
+.notification:hover .notiborderglow {
+  opacity: 0.1
+}
+
+.note {
+  color: var(--color);
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.9rem;
+  width: 75%;
+}
+
+/* 3.4 calendar */
+
+.calendar-section{
+  text-align: center;
+  border-radius: 20px;
+  background-color:  rgb(250, 221, 186);
+  margin-left: 0.9rem;
+  box-shadow: 5px 8px 10px 1px #00000037;
+  overflow:scroll ;
+  /* border: 1px solid rgb(83, 82, 82); */
+
+}
+
+
+ /* Black border for all cells */
+/* .rbc-month-view, 
+.rbc-day-slot, 
+.rbc-time-slot, 
+.rbc-timeslot-group {
+  border: 1px solid rgb(137, 136, 136);
+} */
+
+/* Border around the days in month view */
+.rbc-day-bg {
+  border: 1px solid rgb(92, 92, 92); 
+}
+
+/* Date cells (top part) */
+/* .rbc-date-cell {
+  border: 1px solid rgb(137, 136, 136); 
+} */
+
+
+/* Border around events */
+.rbc-event {
+  border: 1px solid rgb(137, 136, 136); 
+}
+
+
+/* Border around the content in time view */
+.rbc-time-content {
+  border: 1px solid rgb(76, 76, 76); 
 }
 
 

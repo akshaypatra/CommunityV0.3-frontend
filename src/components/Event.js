@@ -30,11 +30,8 @@ export default function Event() {
               </p>
 
               <div className="event-actions">
-                <a className="event-read" href="/">
-                  Take a Look
-                </a>
-
-                <a className="event-mark-as-read" href="/">
+                
+                <a className="event-register" href="/">
                   Register
                 </a>
               </div>
